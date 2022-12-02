@@ -49,7 +49,7 @@ a {
     height: 70px;
     background: rgba(255, 255, 255, 0.767);
     text-align: center;
-    line-height: 70px;
+    line-height: 60px;
     margin-left: 25px;
     margin-right: 25px;
 
@@ -89,14 +89,118 @@ a:hover {
     padding-left: 50px;
     box-sizing: border-box;
 
-
-}
-        </style>
+</style>
+<style>
+						
+                        @font-face {
+                            font-family: 'FontAwesome';
+                            src: url('./fontawesome-webfont.eot');
+                            src: url('./fontawesome-webfont.eot') format('embedded-opentype'),
+                                url('./fontawesome-webfont.woff2') format('woff2'), url('.fontawesome-webfont.woff') format('woff'),
+                                url('./fontawesome-webfont.ttf') format('truetype'),
+                                url('./fontawesome-webfont.svg') format('svg');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+                    
+                        .search-box {
+                            font-family: FontAwesome;
+                            position: absolute;
+                            top: 20%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background: #ffffff;
+                            height: 40px;
+                            border: 10px;
+                            border-radius: 40px;
+                            padding: 10px;
+                            opacity: 0;
+                            transition-delay: 99999999s;
+                            transition-duration: 1s;
+                        }
+                    
+                        .search-box:hover>.search-txt {
+                            width: 250px;
+                            padding: 0 6px;
+                        }
+                    
+                        .search-box:hover>.search-btn {
+                            color: rgb(110, 161, 110);
+                            background: black;
+                        }
+                    
+                        .search-btn {
+                            transition: 0.0001s;
+                            font-family: FontAwesome;
+                            font-size: 25px;
+                            color: black;
+                            float: right;
+                            width: 40px;
+                            height: 40px;	
+                            border: 10px;
+                            border-radius: 50%;
+                            background: #ffffff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            text-decoration: none;
+                        }
+                    
+                        .search-txt {
+                            border: none;
+                            background: none;
+                            outline: none;
+                            float: left;
+                            padding: 0;
+                            color: rgb(51, 159, 150);
+                            font-size: 16px;
+                            transition: 0.6s;
+                            line-height: 50px;
+                            width: 0px;
+                        }
+                       
+                        @keyframes flash {
+                            50% {
+                                transform: scale(1.5);
+                            }
+                    
+                            80% {
+                                transform: rotate(-60deg);
+                            }
+                    
+                            100% {
+                                transform: rotate(30deg);
+                            }
+                            
+                            
+                        }
+                        html:hover .search-box {
+                            opacity: 1;
+                            transition-delay: 0s;
+                            transition-duration: 0s;
+                        }
+                        
+                    </style>
+      
     </head>
     <body>
-        <br><h1>来自绍洋的Browser站</h1><br>
+        <br><h1>Browser站</h1><br>
         
-        <h2>影音娱乐类</h2>
+</head>
+<body>
+    
+    <body style="background-color: bisque;">
+		
+		<center>
+		    <div class="search-box">
+		        <input class="search-txt" type='text' id='inp' placeholder="你想搜点啥呢？"/>
+		        <input class="search-btn" type='button' id='btn' value='&#xf002' />
+		    </div>
+			<div>			
+			</div>
+		</center>
+     
+        <br><br><h2>影音娱乐类</h2>
         <div>
             <div class="w">
                 <div class="nav">
@@ -106,7 +210,7 @@ a:hover {
                     <a href="https://aidn.jp/mikutap/">音乐生成器</a>
                     <a href="www.yikm.net/">小霸王游戏机</a>
                     <a href="http://www.poki.com">小游戏Poki</a>
-                    <a href="http://www.4399.com">小游戏4399</a><a href="https://xxtyme.github.io/EatCxk/">蔡徐坤音游</a>
+                    <a href="http://www.4399.com">小游戏4399</a>
                     <a href="https://xxtyme.github.io/EatCxk/">蔡徐坤音游</a>
                     <a href="https://bruno-simon.com/">3D塞车</a>
                     <a href="https://du.shadiao.app/">emo文案</a>
@@ -136,7 +240,25 @@ a:hover {
         
     </body>
 
-
+    <script>
+	    var oInp = document.getElementById('inp');
+	    var oBtn = document.getElementById('btn');
+	
+	    oBtn.onclick = function () {
+	        Search();
+	    }
+	
+	    document.onkeydown = function () {
+	        if (event.keyCode == 13) {
+	            Search();
+	        }
+	    }
+	
+	    function Search() {
+	        var url = 'https://www.baidu.com/s?wd=' + oInp.value;
+	        window.open(url);
+	    }
+	</script>
 
     
 </html>
